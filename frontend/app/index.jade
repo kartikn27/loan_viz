@@ -1,0 +1,41 @@
+doctype html
+
+html.no-js
+    head
+        title Loan Funding Analysis
+        link(rel="stylesheet", type="text/css", href="libs/angular-material-style.css")
+        link(rel="stylesheet", type="text/css", href="css/style.css")
+        link(rel="stylesheet", href="libs/nv.d3.min.css")
+        link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet")
+
+
+body(ng-app="betterLoans", ng-controller="mainController")
+
+
+        script(src="libs/angular1.6.js")
+        script(src="libs/angular-ui-router.min.js")
+        script(src="libs/angular-material.js")
+        script(src="libs/angular-animate.js")
+        script(src="libs/angular-aria.js")
+
+        script(src="libs/d3.min.js")
+        script(src="libs/nv.d3.min.js")
+
+        script(src="libs/angular-nvd3.js")
+        script(src="libs/nvd3-directives.js")
+
+
+        script(src="app.js")
+        script(src="js/controllers/mainController.js")
+        script(src="js/controllers/loanController.js")
+        script(src="js/services/loanService.js")
+
+        script(src="libs/ng-table.min.js")
+
+
+
+        span(ui-sref="dashboard")
+
+        ui-view
+
+

@@ -1,0 +1,796 @@
+<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+<div>
+    <md-content>
+        <md-tabs md-dynamic-height="" md-border-bottom="" class="navBarC">
+            <div ng-controller="loanController as BC">
+                <md-tab label="OBSERVATIONS AND FINDINGS I" ng-click="BC.rate2016()" class="white">
+                    <md-content class="md-padding">
+                        <div layout-gt-sm="row" class="layout-column flex">
+                            <div flex-gt-sm="30">
+                                <md-list ng-cloak="ng-cloak">
+                                    <md-subheader class="md-no-sticky">OBSERVATIONS I<!--md-list-item--><!--    p-->
+                                        <md-list-item ng-click="BC.rate2016()"><p>Monthly Conversion Rate for year 2016</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.rate2017()"><p>Monthly Conversion Rate for year 2017</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.daysRequired2016()"><p>Days required to fund in 2016</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.daysRequired2017()"><p>Days required to fund in 2017</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                    </md-subheader>
+                                </md-list>
+                            </div>
+                            <div flex-gt-sm="70">
+                                <md-button md-tooltip="Refresh" style="float:right" ng-click="BC.rate2016()"
+                                           class="md-raised blue"><i class="fa fa-refresh">&nbsp Refresh</i></md-button>
+
+                                <div ng-if="BC.charts[7] == true"><h1>Days required to fund applications in 2016 sorted by the application start date</h1>
+                                    <p style="font-size: 12px;">(All the loans amounts are in Thousands)</p>
+                                    <nvd3 options="BC.options.daysRequired2016Data" data="BC.daysRequired2016Data"></nvd3>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> There is a visible improvement in the number of days taken to
+                                    fund the loan. The first loan in 2016 is funded on June 22. However, post Aug 25, there is a
+                                    general dip in the number of days required to fund, with some occasional days where it takes higher
+                                    than normal such as 132, 429. Apart from that it takes generally between 20 - 50 days to fund.
+                                    The average days required to find is 54.23!!
+                                    </p>
+                                </div>
+
+                                <div ng-if="BC.charts[8] == true"><h1>Days required to fund applications in 2017 sorted by the application start date</h1>
+                                    <p style="font-size: 12px;">(All the loans amounts are in Thousands)</p>
+                                    <nvd3 options="BC.options.daysRequired2016Data" data="BC.daysRequired2017Data"></nvd3>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> For 2017, a constant up and down pattern is observed which is followed
+                                        throughout the year. The minimum days required to fund is 15 while maximum is 132.
+                                        The average is 44.28 days.
+                                        This means for the course of two years there has been an improvement of 10 days in the days required
+                                        to fund the loans.
+                                    </p>
+                                </div>
+
+                                <div ng-if="BC.charts[2] == true"><h1>Total applications and funded application for every month for year 2017</h1>
+                                    <nvd3 options="BC.options.rate2017Data" data="BC.rate2017Data"></nvd3>
+                                    <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                                For January, Total applications: 544 ->
+                                                Funded applications: 61 ->
+                                                <b>Conversion Rate: 11.21%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For February, Total applications: 257 ->
+                                                Funded applications: 45 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For March, Total applications: 224 ->
+                                                Funded applications: 35 ->
+                                                <b>Conversion Rate: 17.5%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For April, Total applications: 169 ->
+                                                Funded applications: 27 ->
+                                                <b>Conversion Rate: 15.97%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For May, Total applications: 209 ->
+                                                Funded applications: 61 ->
+                                                <b>Conversion Rate: 29.18%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For June, Total applications: 414 ->
+                                                Funded applications: 87 ->
+                                                <b>Conversion Rate: 21.01%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For July, Total applications: 481 ->
+                                                Funded applications: 75 ->
+                                                <b>Conversion Rate: 15.59%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For August, Total applications: 521 ->
+                                                Funded applications: 75 ->
+                                                <b>Conversion Rate: 14.39%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For September, Total applications: 469 ->
+                                                Funded applications: 61 ->
+                                                <b>Conversion Rate: 13%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For October, Total applications: 411 ->
+                                                Funded applications: 67 ->
+                                                <b>Conversion Rate: 16.3%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For November, Total applications: 352 ->
+                                                Funded applications: 12 ->
+                                                <b>Conversion Rate: 3.4%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For December, Total applications: 138 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                        </md-card-content>
+                                    </md-card>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> January has the most number of applications.
+                                    The application decrease from Feb - April. From May - August the applications
+                                    increase again. They decrease again from September - Dec. December has the lowest application,
+                                    however the data is pre-december, so ideally April has the lowest.
+                                    May has the highest conversion rate of around 30%</p>
+                                </div>
+
+                                <div ng-if="BC.charts[3] == true"><h1>Total applications and funded application for every month for year 2016</h1>
+                                    <nvd3 options="BC.options.rate2016Data" data="BC.rate2016Data"></nvd3>
+                                    <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                            For January, Total applications: 0 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For February, Total applications: 1 ->
+                                            Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For March, Total applications: 9 ->
+                                            Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For April, Total applications: 32 ->
+                                            Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For May, Total applications: 45 ->
+                                            Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For June, Total applications: 2 ->
+                                            Funded applications: 1 ->
+                                                <b>Conversion Rate: 50%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For July, Total applications: 3 ->
+                                            Funded applications: 2 ->
+                                                <b>Conversion Rate: 66%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For August, Total applications: 15 ->
+                                            Funded applications: 15 ->
+                                                <b>Conversion Rate: 100%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For September, Total applications: 119 ->
+                                            Funded applications: 119 ->
+                                                <b>Conversion Rate: 100%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For October, Total applications: 169 ->
+                                            Funded applications: 169 ->
+                                                <b>Conversion Rate: 100%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For November, Total applications: 242 ->
+                                            Funded applications: 85 ->
+                                                <b>Conversion Rate: 35.12%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                            For December, Total applications: 313 ->
+                                            Funded applications: 60 ->
+                                                <b>Conversion Rate: 19.16%</b>
+                                            </p>
+                                        </md-card-content>
+                                    </md-card>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> The number of applications are on ascendence
+                                    from months January - April. However, for the months of May and June there is a decline.
+                                    Then from July - December there is a steady increase.
+                                    Nearly same pattern is observed for the number of funded applications.
+                                    No applications are funded till June. August, september and October have nearly 100% conversion
+                                    rate. December has the most applications, while October has most funded applications.</p>
+                                </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </div>
+            <div ng-controller="loanController as BC">
+                <md-tab label="OBSERVATIONS AND FINDINGS II" ng-click="BC.type2016()" class="white">
+                    <md-content class="md-padding">
+                        <div layout-gt-sm="row" class="layout-column flex">
+                            <div flex-gt-sm="30">
+                                <md-list ng-cloak="ng-cloak">
+                                    <md-subheader class="md-no-sticky">OBSERVATIONS II
+                                        <md-list-item ng-click="BC.type2016()"><p>Conforming vs Jumbo</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.conforming2016()"><p>Conforming Conversion Rate</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.jumbo2016()"><p>Jumbo Conversion Rate</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.conforming2016Months()"><p>Conforming Monthly conversion</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.jumbo2016Months()"><p>Jumbo Monthly conversion</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.conforming2017States()"><p>States by Conforming Loans</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                        <md-list-item ng-click="BC.jumbo2017States()"><p>States by Jumbo Loans</p>
+                                        </md-list-item>
+                                        <md-divider></md-divider>
+                                    </md-subheader>
+                                </md-list>
+                            </div>
+                            <div flex-gt-sm="70">
+                                <md-button md-tooltip="Refresh" style="float:right" ng-click="BC.bikeRides()"
+                                           class="md-raised blue"><i class="fa fa-refresh">&nbsp Refresh</i></md-button>
+                                <div ng-if="BC.charts[0] == true"><h1>Conforming > Jumbo</h1>
+                                    <p style="font-size: 12px;">(Two unit limit is considered as the standard limit for indentifying the loan type
+                                        If the loan_amount > the two unit county limit then Jumbo else Conforming.)</p>
+
+                                        <nvd3 options="BC.options.type2016Count" data="BC.type2016Count"></nvd3>
+                                    <p style="text-align: center; font-size: 22px"><b>Conforming vs Jumbo Loan type for 2016</b></p>
+                                    <div style="text-align: center; font-weight: bold">
+                                        <p>Total Jumbo application: 871</p>
+                                        <p>Total Jumbo application: 15</p>
+                                        <p>98.3% total applications are CONFORMING</p>
+                                        <p>1.7% total applications are JUMBO</p>
+                                    </div>
+
+                                    <nvd3 options="BC.options.type2017Count" data="BC.type2017Count"></nvd3>
+                                    <p style="text-align: center; font-size: 22px"><b>Conforming vs Jumbo Loan type for 2017</b></p>
+                                    <div style="text-align: center; font-weight: bold">
+                                        <p>Total Jumbo application: 3703</p>
+                                        <p>Total Jumbo application: 180</p>
+                                        <p>95.4% total applications are CONFORMING</p>
+                                        <p>4.6% total applications are JUMBO</p>
+                                    </div>
+                                </div>
+
+                                <div ng-if="BC.charts[1] == true"><h1>Conforming Total vs Funded in 2016</h1>
+                                    <nvd3 options="BC.options.type2017Count" data="BC.conforming2016Count"
+                                    class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center; font-size: 22px"><b>Total vs Funded conforming loan applications for 2016</b></p>
+                                    <div style="text-align: center; font-weight: bold">
+                                        <p>Total application: 871</p>
+                                        <p>Funded application: 413</p>
+                                        <p>47.47% total applications have been funded for 2016</p>
+                                    </div>
+
+                                    <nvd3 options="BC.options.type2017Count" data="BC.conforming2017Count"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center; font-size: 22px"><b>Total vs Funded conforming loan applications for 2017</b></p>
+                                    <div style="text-align: center; font-weight: bold">
+                                        <p>Total application: 3703</p>
+                                        <p>Funded application: 558</p>
+                                        <p>15.06% total applications have been funded for 2017</p>
+                                    </div>
+
+                                </div>
+
+                                <div ng-if="BC.charts[2] == true"><h1>Jumbo Total vs Funded in 2017</h1>
+                                    <nvd3 options="BC.options.type2017Count" data="BC.jumbo2016Count"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center; font-size: 22px"><b>Total vs Funded Jumbo loan applications for 2016</b></p>
+                                    <div style="text-align: center; font-weight: bold">
+                                        <p>Total application: 15</p>
+                                        <p>Funded application: 0</p>
+                                        <p>0% total applications have been funded for 2016</p>
+                                    </div>
+
+                                    <nvd3 options="BC.options.type2017Count" data="BC.jumbo2017Count"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center; font-size: 22px"><b>Total vs Funded jumbo loan applications for 2017</b></p>
+                                    <div style="text-align: center; font-weight: bold">
+                                        <p>Total application: 180</p>
+                                        <p>Funded application: 6</p>
+                                        <p>3.33% total applications have been funded for 2017</p>
+                                    </div>
+                                </div>
+
+                                <div ng-if="BC.charts[3] == true"><h1>Conforming loans monthly conversion rate</h1>
+                                    <nvd3 options="BC.options.conforming2016MonthsData" data="BC.conforming2016MonthsData"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center"><b>Total vs Funded Conforming loan applications for 2016 across all the months</b></p>
+                                    <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                                For January, Total applications: 0 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For February, Total applications: 1 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For March, Total applications: 9 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For April, Total applications: 28 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For May, Total applications: 42 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For June, Total applications: 2 ->
+                                                Funded applications: 1 ->
+                                                <b>Conversion Rate: 50%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For July, Total applications: 3 ->
+                                                Funded applications: 2 ->
+                                                <b>Conversion Rate: 66%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For August, Total applications: 14 ->
+                                                Funded applications: 14 ->
+                                                <b>Conversion Rate: 100%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For September, Total applications: 112 ->
+                                                Funded applications: 112 ->
+                                                <b>Conversion Rate: 100%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For October, Total applications: 150 ->
+                                                Funded applications: 149 ->
+                                                <b>Conversion Rate: 99.33%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For November, Total applications: 230 ->
+                                                Funded applications: 79 ->
+                                                <b>Conversion Rate: 34.34%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For December, Total applications: 280 ->
+                                                Funded applications: 56 ->
+                                                <b>Conversion Rate: 20%</b>
+                                            </p>
+                                        </md-card-content>
+                                    </md-card>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> The number of applications are on ascendence
+                                        from months January - May. However, for the months of June and July there is a decline.
+                                        Then from August - October there is a steady increase and decline again from Nov - Dec.
+                                        Nearly same pattern is observed for the number of funded applications.
+                                        No applications are funded till June. August, september and October have nearly 100% conversion
+                                        rate. December has the most applications, while October has most funded applications.</p>
+
+                                    <nvd3 options="BC.options.conforming2016MonthsData" data="BC.conforming2017MonthsData"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center"><b>Total vs Funded Conforming loan applications for 2017 across all the months</b></p>
+                                    <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                                For January, Total applications: 463 ->
+                                                Funded applications: 56 ->
+                                                <b>Conversion Rate: 12%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For February, Total applications: 230 ->
+                                                Funded applications: 41 ->
+                                                <b>Conversion Rate: 17.82%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For March, Total applications: 197 ->
+                                                Funded applications: 32 ->
+                                                <b>Conversion Rate: 16.24%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For April, Total applications: 147 ->
+                                                Funded applications: 26 ->
+                                                <b>Conversion Rate: 17.68%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For May, Total applications: 186 ->
+                                                Funded applications: 52 ->
+                                                <b>Conversion Rate: 27.95%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For June, Total applications: 378 ->
+                                                Funded applications: 80 ->
+                                                <b>Conversion Rate: 21.16%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For July, Total applications: 427 ->
+                                                Funded applications: 69 ->
+                                                <b>Conversion Rate: 16.15%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For August, Total applications: 464 ->
+                                                Funded applications: 72 ->
+                                                <b>Conversion Rate: 15.51%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For September, Total applications: 419 ->
+                                                Funded applications: 57 ->
+                                                <b>Conversion Rate: 15.51%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For October, Total applications: 356 ->
+                                                Funded applications: 62 ->
+                                                <b>Conversion Rate: 17.41%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For November, Total applications: 315 ->
+                                                Funded applications: 11 ->
+                                                <b>Conversion Rate: 3.49%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For December, Total applications: 121 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                        </md-card-content>
+                                    </md-card>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> August has the most application, while June has the mst funded.
+                                    May with 28% has the best conversion rate.
+                                    Both the number of total and funded applications follow a nearly same curve</p>
+                                </div>
+
+                                <div ng-if="BC.charts[4] == true"><h1>Jumbo loans monthly conversion rate</h1>
+                                    <nvd3 options="BC.options.jumbo2016MonthsData" data="BC.jumbo2016MonthsData"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center"><b>Total vs Funded Jumbo loan applications for 2016 across all the months</b></p>
+                                    <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                                For April, Total applications: 2 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For November, Total applications: 1 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For December, Total applications: 12 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                        </md-card-content>
+                                    </md-card>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> There are only 15 Jumbo applications and none of the, is funded.
+                                    December with 12 has the most applications</p>
+
+
+                                    <nvd3 options="BC.options.jumbo2016MonthsData" data="BC.jumbo2017MonthsData"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center"><b>Total vs Funded Jumbo loan applications for 2017 across all the months</b></p>
+                                    <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                                For January, Total applications: 37 ->
+                                                Funded applications: 1 ->
+                                                <b>Conversion Rate: 2.7%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For February, Total applications: 9 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For March, Total applications: 14 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For April, Total applications: 7 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For May, Total applications: 6 ->
+                                                Funded applications: 2 ->
+                                                <b>Conversion Rate: 33.33%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For June, Total applications: 12 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For July, Total applications: 16 ->
+                                                Funded applications: 1 ->
+                                                <b>Conversion Rate: 6.25%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For August, Total applications: 22 ->
+                                                Funded applications: 1 ->
+                                                <b>Conversion Rate: 4.45%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For September, Total applications: 22 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For October, Total applications: 22 ->
+                                                Funded applications: 1 ->
+                                                <b>Conversion Rate: 4.45%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For November, Total applications: 7 ->
+                                                Funded applications: 1 ->
+                                                <b>Conversion Rate: 14.28%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For December, Total applications: 6 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                        </md-card-content>
+                                    </md-card>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> August, september and october have the joint most 22 applications.
+                                    There are only 7 funded across the whole year with May having the most at 2.</p>
+                                </div>
+
+                                <div ng-if="BC.charts[5] == true"><h1>Conforming loans conversion rate by States</h1>
+                                    <nvd3 options="BC.options.conforming2017StatesData" data="BC.conforming2016StatesData"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center"><b>Total vs Funded Conforming loan applications for 2016 across various states</b></p>
+                                    <div>
+                                        <p style="text-align: center; font-weight: bold">0: CA, 1: NJ, 2: NC, 3: OR, 5: PA, 5: WA</p>
+                                        <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                                For California, Total applications: 613 ->
+                                                Funded applications: 297 ->
+                                                <b>Conversion Rate: 48.45%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For New Jersey, Total applications: 69 ->
+                                                Funded applications: 33 ->
+                                                <b>Conversion Rate: 47.82%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For North Carolina, Total applications: 14 ->
+                                                Funded applications: 4 ->
+                                                <b>Conversion Rate: 28.57%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Oregon, Total applications: 17 ->
+                                                Funded applications: 4 ->
+                                                <b>Conversion Rate: 23.52%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Philadelphia, Total applications: 28 ->
+                                                Funded applications: 3 ->
+                                                <b>Conversion Rate: 10.71%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Washington, Total applications: 130 ->
+                                                Funded applications: 72 ->
+                                                <b>Conversion Rate: 55.38%</b>
+                                            </p>
+                                        </md-card-content>
+                                        </md-card>
+                                        <p class="recPdata1"><b>OBSERVATION:</b> California with 297 of 613 has the most funded and total application
+                                        with 48.45% conversion.
+                                        NC has the lowest 14 applications while PA has least funded at 3.
+                                        WA has the best conversion at 55.38%</p>
+                                    </div>
+
+                                    <nvd3 options="BC.options.conforming2017StatesData" data="BC.conforming2017StatesData"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center"><b>Total vs Funded Conforming loan applications for 2017 across various states</b></p>
+                                    <div>
+                                        <p style="text-align: center; font-weight: bold">0: AZ, 1: CA, 2: CO, 3: CT, 5: DC, 5: FL, 6: GA,
+                                            7: IL, 8: NJ, 9: NY, 10: NC, 11: OR, 12: PA, 13: TX, 14: WA</p>
+                                        <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                                For Arizona, Total applications: 108 ->
+                                                Funded applications: 11 ->
+                                                <b>Conversion Rate: 10.18%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For California, Total applications: 1536 ->
+                                                Funded applications: 257 ->
+                                                <b>Conversion Rate: 16.73%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Colorado, Total applications: 104 ->
+                                                Funded applications: 15 ->
+                                                <b>Conversion Rate: 14.42%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Connecticut, Total applications: 67 ->
+                                                Funded applications: 6 ->
+                                                <b>Conversion Rate: 8.95%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For DC, Total applications: 39 ->
+                                                Funded applications: 7 ->
+                                                <b>Conversion Rate: 17.94%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Florida, Total applications: 144 ->
+                                                Funded applications: 12 ->
+                                                <b>Conversion Rate: 8.33%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Georgia, Total applications: 211 ->
+                                                Funded applications: 31 ->
+                                                <b>Conversion Rate: 14.69%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Illinois, Total applications: 203 ->
+                                                Funded applications: 19 ->
+                                                <b>Conversion Rate: 9.35%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For New Jersey, Total applications: 220 ->
+                                                Funded applications: 25 ->
+                                                <b>Conversion Rate: 11.36%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For New York, Total applications: 1 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For North Carolina, Total applications: 223 ->
+                                                Funded applications: 38 ->
+                                                <b>Conversion Rate: 17.04%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Oregon, Total applications: 124 ->
+                                                Funded applications: 17 ->
+                                                <b>Conversion Rate: 13.70%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Philadelphia, Total applications: 241 ->
+                                                Funded applications: 24 ->
+                                                <b>Conversion Rate: 9.95%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Texas, Total applications: 1 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Washington, Total applications: 481 ->
+                                                Funded applications: 96 ->
+                                                <b>Conversion Rate: 19.95%</b>
+                                            </p>
+                                        </md-card-content>
+                                        </md-card>
+                                        <p class="recPdata1"><b>OBSERVATION:</b> CA has the most applications, while WA has the best conversion rate of 20%</p>
+                                    </div>
+
+                                </div>
+
+                                <div ng-if="BC.charts[6] == true"><h1>Jumbo loans conversion rate by States</h1>
+                                    <nvd3 options="BC.options.conforming2017StatesData" data="BC.jumbo2016StatesData"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center"><b>Total vs Funded Jumbo loan applications for 2016 across various states</b></p>
+                                    <div>
+                                        <p style="text-align: center; font-weight: bold">0: AZ, 1: CA, 2: CO</p>
+                                        <md-card style="margin-top:20px">
+                                        <md-card-content>
+                                            <p class="recPdata">
+                                                For Arizona, Total applications: 13 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For California, Total applications: 1 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                            <p class="recPdata">
+                                                For Colorado, Total applications: 1 ->
+                                                Funded applications: 0 ->
+                                                <b>Conversion Rate: 0%</b>
+                                            </p>
+                                        </md-card-content>
+                                        </md-card>
+                                        <p class="recPdata1"><b>OBSERVATION:</b> None of the three states have funded any Jumbo loans</p>
+                                    </div>
+
+                                    <nvd3 options="BC.options.conforming2017StatesData" data="BC.jumbo2017StatesData"
+                                          class="with-3d-shadow with-transitions"></nvd3>
+                                    <p style="text-align: center"><b>Total vs Funded Jumbo loan applications for 2017 across various states</b></p>
+                                    <p style="text-align: center; font-weight: bold">0: AZ, 1: CA, 2: CO, 3: CT, 5: DC, 5: FL, 6: GA,
+                                    7: IL, 8: NJ, 9: NC, 10: OR, 11: PA, 12: WA</p>
+                                    <md-card style="margin-top:20px">
+                                    <md-card-content>
+                                        <p class="recPdata">
+                                            For Arizona, Total applications: 1 ->
+                                            Funded applications: 0 ->
+                                            <b>Conversion Rate: 0%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For California, Total applications: 105 ->
+                                            Funded applications: 2 ->
+                                            <b>Conversion Rate: 1.90%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For Colorado, Total applications: 3 ->
+                                            Funded applications: 0 ->
+                                            <b>Conversion Rate: 0%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For Connecticut, Total applications: 10 ->
+                                            Funded applications: 1 ->
+                                            <b>Conversion Rate: 10%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For DC, Total applications: 2 ->
+                                            Funded applications: 0 ->
+                                            <b>Conversion Rate: 0%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For Florida, Total applications: 6 ->
+                                            Funded applications: 0 ->
+                                            <b>Conversion Rate: 0%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For Georgia, Total applications: 6 ->
+                                            Funded applications: 0 ->
+                                            <b>Conversion Rate: 0%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For Illinois, Total applications: 2 ->
+                                            Funded applications: 0 ->
+                                            <b>Conversion Rate: 0%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For New Jersey, Total applications: 6 ->
+                                            Funded applications: 0 ->
+                                            <b>Conversion Rate: 0%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For North Carolina, Total applications: 10 ->
+                                            Funded applications: 1 ->
+                                            <b>Conversion Rate: 10%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For Oregon, Total applications: 2 ->
+                                            Funded applications: 0 ->
+                                            <b>Conversion Rate: 0%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For Philadelphia, Total applications: 11 ->
+                                            Funded applications: 1 ->
+                                            <b>Conversion Rate: 9.09%</b>
+                                        </p>
+                                        <p class="recPdata">
+                                            For Washington, Total applications: 16 ->
+                                            Funded applications: 1 ->
+                                            <b>Conversion Rate: 6.25%</b>
+                                        </p>
+                                    </md-card-content>
+                                    </md-card>
+                                    <p class="recPdata1"><b>OBSERVATION:</b> CA has the ost Jumbo loans at 105, however only 2 of them are funded till
+                                    Dec 2017. Incidently those 2 are the most funded for any state.</p>
+                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </div>
+        </md-tabs>
+    </md-content>
+</div><p class="copyright">&copy; Kartik Nagre 2018</p>
