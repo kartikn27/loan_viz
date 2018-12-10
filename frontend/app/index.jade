@@ -6,36 +6,47 @@ html.no-js
         link(rel="stylesheet", type="text/css", href="libs/angular-material-style.css")
         link(rel="stylesheet", type="text/css", href="css/style.css")
         link(rel="stylesheet", href="libs/nv.d3.min.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.6/nv.d3.min.css.map")
         link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet")
 
 
 body(ng-app="betterLoans", ng-controller="mainController")
 
 
-        script(src="libs/angular1.6.js")
-        script(src="libs/angular-ui-router.min.js")
-        script(src="libs/angular-material.js")
-        script(src="libs/angular-animate.js")
-        script(src="libs/angular-aria.js")
+    //script(src="libs/angular1.6.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.js")
+    //script(src="libs/angular-ui-router.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js")
+    //script(src="libs/angular-material.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.5/angular-material.js")
+    //script(src="libs/angular-animate.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-animate.js")
+    //script(src="libs/angular-aria.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular-aria.js")
 
-        script(src="libs/d3.min.js")
-        script(src="libs/nv.d3.min.js")
+    //script(src="libs/d3.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.7/d3.min.js")
+    //script(src="libs/nv.d3.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.6/nv.d3.min.js")
 
-        script(src="libs/angular-nvd3.js")
-        script(src="libs/nvd3-directives.js")
-
-
-        script(src="app.js")
-        script(src="js/controllers/mainController.js")
-        script(src="js/controllers/loanController.js")
-        script(src="js/services/loanService.js")
-
-        script(src="libs/ng-table.min.js")
+    //script(src="libs/angular-nvd3.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angular-nvd3/1.0.9/angular-nvd3.js")
+    //script(src="libs/nvd3-directives.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-nvd3-directives/0.0.8/angularjs-nvd3-directives.js")
 
 
+    script(src="app.js")
+    script(src="js/controllers/mainController.js")
+    script(src="js/controllers/loanController.js")
+    script(src="js/services/loanService.js")
 
-        span(ui-sref="dashboard")
+    //script(src="libs/ng-table.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/1.0.0/ng-table.min.js")
 
-        ui-view
+
+
+    span(ui-sref="dashboard")
+
+    ui-view
 
 
